@@ -1,0 +1,156 @@
+.dark{
+    background-color:#212121;
+}
+.lightblack{
+    background-color:#1C2331 ;
+}
+.telight{
+    color:#13a5aa ;
+}
+.sute{
+    color:#1681b3 ;
+    text-align: center;
+}
+
+#btn-tran{
+    background:transparent; 
+    border-color:transparent;
+    color: #2595b1;
+    margin-bottom:0px; 
+    text-align: left; 
+}
+#btn-tran:hover{
+    color: #000;
+}
+.logas{
+    background:#3895ac; 
+    border:2px solid #212121;  
+    color:#212121;
+}
+.logas:hover{
+    background:#3895ac; 
+    color:#fff;
+}
+.cara{
+    color: #2595b1;
+    margin-left:3%; 
+    margin-top:0%;
+}
+.shap{
+    margin-right:5px;
+}
+.mobo{
+    text-align:center; 
+    margin-top:-17%; 
+    margin-bottom:-4.3%;
+}
+.bvn{
+    margin:20px;
+    background-size:100%; 
+    height:30vh;  
+}
+@media(max-width:200px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:2%;
+    }
+}
+@media(max-width:1900px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:4%;
+    }
+}
+@media(max-width:1850px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:6%;
+    }
+}
+@media(max-width:1800px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:8%;
+    }
+}
+@media(max-width:1750px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:10%;
+    }
+}
+@media(max-width:1700px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:12%;
+    }
+}
+@media(max-width:1650px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:14%;
+    }
+}
+@media(max-width:1600px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:16%;
+    }
+}
+@media(max-width:1550px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:18%;
+    }
+}
+@media(max-width:1500px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:20%;
+    }
+}
+@media(max-width:1450px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:22%;
+    }
+}
+@media(max-width:1400px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:24%;
+    }
+}
+@media(max-width:1344px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:26%;
+    }
+}
+@media(max-width:1300px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:28%;
+    }
+}
+@media(max-width:1250px){
+    .cara{
+        color: #2595b1;
+        margin-left:3%; 
+        margin-top:30%;
+    }
+}

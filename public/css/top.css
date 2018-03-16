@@ -1,0 +1,49 @@
+.top{
+    border-bottom: 2px solid #ddd;
+    height:50px;
+    overflow-x: hidden;
+}
+.btn-hover{
+    height: 47px;
+    padding: 0;
+    position: absolute;
+    margin-top: 0px;
+    background: transparent;
+    margin-bottom: 3px;
+}
+.img-admin{
+    width:50%;
+    height:100%;
+    border-radius: 30px;
+    margin-left: 20%; 
+    float: center;
+}
+@media(max-width:1300px){
+    .img-admin{
+        width:65%;  
+        margin-left: 5%;
+        
+    }
+}
+@media(max-width:900px){
+    .img-admin{
+        width:70%;  
+        margin-left: 0%;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
