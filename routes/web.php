@@ -96,3 +96,10 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+Route::get('/admin/login','staffAuth\AuthController@loginPage');
+Route::post('/admin/login','staffAuth\AuthController@login');
+Route::get('/admin/logout','staffAuth\AuthController@logout');

@@ -35,10 +35,10 @@ class maincontroller extends Controller
 		if (Auth::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
 				return redirect()->route('ada');
 		}
-		elseif(staff::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
+		elseif(Auth::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
 			return redirect()->route('ada');
 		}
-		elseif(teacher::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
+		elseif(Auth::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
 			return redirect()->route('tea');			
 		}
 		return redirect()->back()->withfailer('WRONG INPUTS');

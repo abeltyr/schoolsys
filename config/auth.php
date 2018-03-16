@@ -17,6 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'staff' => [
+        'driver' => 'session',
+        'provider' => 'staff',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -72,11 +76,7 @@ return [
         'staff' => [
             'driver' => 'eloquent',
             'model' => App\staff::class,
-        ],
-        'teacher' => [
-            'driver' => 'eloquent',
-            'model' => App\teacher::class,
-        ],
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -105,18 +105,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'staff' => [
-            'provider' => 'staffs',
+        'staffs' => [
+            'provider' => 'staff',
+            'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'teacher' => [
-            'provider' => 'teachers',
-            'table' => 'password_resets',
-            'expire' => 60,
-        ],
- 
- 
     ],
 
 ];
