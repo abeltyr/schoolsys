@@ -18,6 +18,7 @@ class CreateRanksTable extends Migration
             $table->string('student_id');
             $table->string('name');
             $table->integer('rank');
+            $table->integer('semister');
             $table->integer('per_by_cla');
             $table->integer('per_by_bath');
             $table->timestamps();
