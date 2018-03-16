@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Auth;
 use File;
 use App\User;
+use App\staff;
 use Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -15,8 +16,48 @@ class staffcontroller  extends Controller
 {
 	
 
-
-
+	public function Signup(Request $request){
+        $photo = $request->file('photo');
+		$first_name = $request['fname'];
+		$last_name = $request['lname'];
+		$email = $request['email'];
+		$phone = $request['phone'];
+        $role = $request['role'];
+        $token = $request['_token'];
+		$password = bcrypt($request['password']);
+		$this->validate($request, [
+			'fname' => 'required|max:120',
+			'lname' => 'required|max:120',
+			'email' => 'email|unique:Users',
+			'phone' => 'required|unique:Users|max:9|min:9',             
+			'role' => 'required',
+			'password' => 'required|min:8|confirmed',
+			'photo' => 'mimes:jpeg,jpg,png | max:10000',
+		]);
+		$user = new staff();
+		$user->firstname = $first_name;
+		$user->lastname = $last_name; 
+		if ($request-> hasFile('photo')){
+			$photo = $request->file('photo');
+			$filename = time() . '.' . $photo->getClientOriginalExtension();
+			Image::make($photo)->resize(2000, 2000) ->save(public_path('/uploads/employ/'.$filename));
+			if($user){
+				$user->avatar = $filename;
+			} 
+		}
+		$user->email = $email;
+		$user->role_id = $role;
+		$user->password = $password;
+		$user->phone = $phone;
+		$user->pin = '1234';
+		$user->remember_token = $token;
+		$user->save();
+		return redirect()->back()->withSuccess('SUCCESSFULY INSERTED');
+	}
+	public function getLogout(){
+		Auth::logout();
+		return redirect()->route('main');
+	}
 
 
 
@@ -25,7 +66,31 @@ class staffcontroller  extends Controller
 
 
 /*
+	public function getadd(){
+		return view('staff.add');
+	}
 
+public function Signin(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required',
+			'password' => 'required|min:8',
+			'pin' => 'required|min:4|max:4'
+		]);
+		if (Auth::attempt(['email'=> $request['email'], 'password' => $request['password'], 'pin' => $request['pin'] ])){
+			$changer = Auth::user(); 
+			if(($changer->role_id) == 0){
+				return redirect()->route('sta');
+			}
+			elseif(($changer->role_id == 1)){
+				return redirect()->route('tea');
+			}
+			elseif(($changer->role_id) == 2){
+				return redirect()->route('ada');
+			}
+		}
+		return redirect()->back()->withfailer('WRONG INPUTS');
+	}
 
 
 
@@ -54,54 +119,7 @@ class staffcontroller  extends Controller
         $staffs = User::find($editsta);
 		return view('staff.editteac',['staff' => $staffs ]);
 	}
-	public function Signup(Request $request){
-        $photo = $request->file('photo');
-		$first_name = $request['fname'];
-		$last_name = $request['lname'];
-		$email = $request['email'];
-		$phone = $request['phone'];
-        $role = $request['role'];
-        $token = $request['_token'];
-		$password = bcrypt($request['password']);
-		$this->validate($request, [
-			'fname' => 'required|max:120',
-			'lname' => 'required|max:120',
-			'email' => 'email|unique:Users',
-			'phone' => 'required|unique:Users|max:9|min:9',             
-			'role' => 'required',
-			'password' => 'required|min:8|confirmed',
-			'photo' => 'mimes:jpeg,jpg,png | max:10000',
-		]);
-        $user = new User();
-		$user->email = $email;
-		$user->role_id = $role;
-		$user->fname = $first_name;
-		$user->lname = $last_name; 
-        $user->name = $first_name . ' ' . $last_name;
-		if ($request-> hasFile('photo')){
-            $photo = $request->file('photo');
-            $filename = time() . '.' . $photo->getClientOriginalExtension();
-			Image::make($photo)->resize(2000, 2000) ->save(public_path('/uploads/employ/'.$filename));
-			if($user){
-				$user->avatar = $filename;
-			} 
-        }
-		$user->phone = $phone;
-		$user->pin = '1234';
-        $user->password = $password;
-        $user->remember_token = $token;
-		$user->save();
-		//Auth::login($user);
-		return redirect()->back()->withSuccess('SUCCESSFULY INSERTED');
-	}
-	public function getLogout(){
-		Auth::logout();
-		return redirect()->route('main');
-	}
-	public function getadd(){
-		return view('staff.add');
-	}
-
+	
 
 
 

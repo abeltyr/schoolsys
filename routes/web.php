@@ -76,13 +76,18 @@ Route::get('/Add Members',[
     'as' => 'getadd',
 ]);
 Route::get('/staff',[
-    'uses' => 'staffcontroller@sta',
+    'uses' => 'maincontroller@sta',
     'as' => 'sta',
 ]);
 Route::get('/teacher',[
-    'uses' => 'staffcontroller@tea',
+    'uses' => 'maincontroller@tea',
     'as' => 'tea',
 ]);
+Route::get('/Admin',[
+    'uses' => 'maincontroller@ada',
+    'as' => 'ada',
+]);
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

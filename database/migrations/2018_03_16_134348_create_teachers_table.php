@@ -23,7 +23,7 @@ class CreateTeachersTable extends Migration
             $table->string('role_id');
             $table->integer('phone')->unique();
             $table->integer('pin');
-            $table->integer('rank');
+            $table->integer('rank')->default('0');
             $table->string('grade');
             $table->string('subject');
             $table->string('section');

@@ -69,6 +69,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'staff' => [
+            'driver' => 'eloquent',
+            'model' => App\staff::class,
+        ],
+        'teacher' => [
+            'driver' => 'eloquent',
+            'model' => App\teacher::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -97,6 +105,18 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'staff' => [
+            'provider' => 'staffs',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'teacher' => [
+            'provider' => 'teachers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+ 
+ 
     ],
 
 ];
